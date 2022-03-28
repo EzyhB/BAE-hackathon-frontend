@@ -82,6 +82,22 @@ export default function Home() {
               />
             )}
           </Grid>
+          <Grid
+            item
+            md={6}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center", margin: "3rem 0" }}
+          >
+            {weatherData && (
+              <DisplayCards
+                name={weatherData.name}
+                weather={weatherData.weather[0].main}
+                windSpeed={weatherData.wind.speed}
+                feelsLike={weatherData.main.feels_like}
+                temp={weatherData.main.temp}
+              />
+            )}
+          </Grid>
         </Grid>
       </Container>
     </Container>

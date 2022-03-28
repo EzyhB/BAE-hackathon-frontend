@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
+import { UserProvider } from "@auth0/nextjs-auth0";
 
 import createEmotionCache from "../utility/createEmotionCache";
 import { darkTheme, lightTheme } from "../styles/theme/darkTheme";
@@ -17,9 +18,11 @@ const MyApp = (props) => {
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <Navbar isDark={isDark} setIsDark={setIsDark} />
-        <CssBaseline />
-        <Component {...pageProps} />
+        <UserProvider>
+          <Navbar isDark={isDark} setIsDark={setIsDark} />
+          <CssBaseline />
+          <Component {...pageProps} />
+        </UserProvider>
       </ThemeProvider>
     </CacheProvider>
   );
