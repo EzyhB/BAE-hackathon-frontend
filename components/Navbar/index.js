@@ -154,6 +154,13 @@ const Navbar = ({ isDark, setIsDark }) => {
               >
                 Theme
               </MenuItem>
+              {}
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Button href="/api/auth/login">Login</Button>
+              </MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Button href="/api/auth/logout">Logout</Button>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
