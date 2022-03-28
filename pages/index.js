@@ -13,13 +13,12 @@ export default function Home() {
     setWeatherData(data);
   }, []);
 
-  console.log("Data here..", data);
   return (
     <Container>
       <Container>
         <Grid container>
           <Grid item>
-            {weatherData.name && (
+            {weatherData && (
               <DisplayCards
                 name={weatherData.name}
                 weather={weatherData.weather[0].main}
