@@ -18,7 +18,7 @@ import { ImageList } from "@mui/material";
 const pages = ["Home", "New Location"];
 const settings = ["Profile", "Account"];
 
-const Navbar = () => {
+const Navbar = ({ isDark, setIsDark }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -143,9 +143,17 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}testss</Typography>
+                  <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
+              <MenuItem
+                onClick={() => {
+                  handleCloseUserMenu();
+                  setIsDark(!isDark);
+                }}
+              >
+                Theme
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
