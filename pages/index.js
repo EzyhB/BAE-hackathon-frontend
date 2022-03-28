@@ -4,23 +4,29 @@ import DisplayCards from "../components/DisplayCards";
 import useFetch from "../hooks/useFetch.js";
 
 export default function Home() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?zip=DA16,GB&appid=fed7a956d8b8ed2124f69e9691839d44`;
+  const [mapData, setMapdata] = useState([]);
 
-  const { data, error } = useFetch(url);
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?zip=DA16,GB&appid=fed7a956d8b8ed2124f69e9691839d44`;
+  const apiUrl = `http://localhost:5500/users/1`;
+
+  const { data, error } = useFetch(weatherUrl);
+
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
     const dbFetch = async () => {
-      const result = await fetch("http://localhost:5500/users/1");
-      const data = await result.json();
+      const response = await fetch(apiUrl);
+      const data = await response.json();
       if (data) {
         console.log(data);
+        let postcode = data.payload.map((el) => {
+          return el.postcode;
+        });
+        console.log("POSTCODE", postcode);
       }
     };
-
     dbFetch();
 
-    console.log("DAta heree", data);
     setWeatherData(data);
   }, [data]);
 
