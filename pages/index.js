@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 import DisplayCards from "../components/DisplayCards";
 import useFetch from "../hooks/useFetch.js";
 
+const image = [
+  "https://www.thebmc.co.uk/Handlers/ArticleImageHandler.ashx?id=6612&index=0&w=605&h=434",
+  "https://www.visitnorthumberland.com/VisitNorthumberland/media/VisitNorthumberland/Home/Explore/Things%20to%20do/Activities/Walking/Short%20Walks/Walltown%20Crags/Walltown-crags-shuttertock.jpg?ext=.jpg",
+  "https://www.scottish-places.info/images/p5511.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/8/82/Caves_Creswell_Crags_-_geograph.org.uk_-_90873.jpg",
+];
+
 export default function Home() {
   const [mapData, setMapdata] = useState([]);
   const [postcode, setPostcode] = useState([]);
@@ -76,6 +83,7 @@ export default function Home() {
                   windSpeed={item.wind.speed}
                   feelsLike={item.main.feels_like}
                   temp={item.main.temp}
+                  image={image[index]}
                 />
               </Grid>
             );
