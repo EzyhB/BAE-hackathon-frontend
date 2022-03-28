@@ -16,9 +16,62 @@ export default function Home() {
 
   return (
     <Container>
-      <Container>
+      <Container sx={{ margin: "4rem 0" }}>
         <Grid container>
-          <Grid item>
+          <Grid
+            item
+            md={6}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center", margin: "3rem 0" }}
+          >
+            {weatherData && (
+              <DisplayCards
+                name={weatherData.name}
+                weather={weatherData.weather[0].main}
+                windSpeed={weatherData.wind.speed}
+                feelsLike={weatherData.main.feels_like}
+                temp={weatherData.main.temp}
+              />
+            )}
+          </Grid>
+          <Grid
+            item
+            md={6}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center", margin: "3rem 0" }}
+          >
+            {weatherData && (
+              <DisplayCards
+                name={weatherData.name}
+                weather={weatherData.weather[0].main}
+                windSpeed={weatherData.wind.speed}
+                feelsLike={weatherData.main.feels_like}
+                temp={weatherData.main.temp}
+              />
+            )}
+          </Grid>
+          <Grid
+            item
+            md={6}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center", margin: "3rem 0" }}
+          >
+            {weatherData && (
+              <DisplayCards
+                name={weatherData.name}
+                weather={weatherData.weather[0].main}
+                windSpeed={weatherData.wind.speed}
+                feelsLike={weatherData.main.feels_like}
+                temp={weatherData.main.temp}
+              />
+            )}
+          </Grid>
+          <Grid
+            item
+            md={6}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center", margin: "3rem 0" }}
+          >
             {weatherData && (
               <DisplayCards
                 name={weatherData.name}

@@ -21,7 +21,7 @@ export default function DisplayCards({
   temp,
 }) {
   return (
-    <Card>
+    <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={name} subheader={weather} />
       <CardMedia
         component="img"
