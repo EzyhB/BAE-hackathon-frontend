@@ -10,8 +10,9 @@ export default function Home() {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
+    console.log("DAta heree", data);
     setWeatherData(data);
-  }, []);
+  }, [data]);
 
   return (
     <Container>
