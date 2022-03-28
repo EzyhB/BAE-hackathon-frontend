@@ -11,11 +11,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+// import logo from "../../public/images/logo.png";
+import Image from "next/image";
+import { ImageList } from "@mui/material";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Home", "New Location"];
+const settings = ["Profile", "Account"];
 
-const Navbar = () => {
+const Navbar = ({ isDark, setIsDark }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -44,7 +47,12 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            LOGO
+            <Image
+              src="/images/logo.png"
+              alt="logo"
+              width={"80px"}
+              height="80px"
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -83,14 +91,19 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+          <ImageList
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+            }}
           >
-            LOGO
-          </Typography>
+            <Image
+              src="/images/logo.png"
+              alt="logo"
+              width={"60px"}
+              height="60px"
+            />
+          </ImageList>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
@@ -130,9 +143,17 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}testss</Typography>
+                  <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
+              <MenuItem
+                onClick={() => {
+                  handleCloseUserMenu();
+                  setIsDark(!isDark);
+                }}
+              >
+                Theme
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

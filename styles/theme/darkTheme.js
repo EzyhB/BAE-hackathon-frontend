@@ -5,5 +5,10 @@ const darkTheme = createTheme({
     mode: "dark",
   },
 });
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+  },
+});
 
-export default darkTheme;
+export { darkTheme, lightTheme };
