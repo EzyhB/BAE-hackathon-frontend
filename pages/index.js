@@ -10,6 +10,16 @@ export default function Home() {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
+    const dbFetch = async () => {
+      const result = await fetch("https://crag-weather.herokuapp.com/users/1");
+      const data = await result.json();
+      if (data) {
+        console.log(data);
+      }
+    };
+
+    dbFetch();
+
     console.log("DAta heree", data);
     setWeatherData(data);
   }, [data]);
