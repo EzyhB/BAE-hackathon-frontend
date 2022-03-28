@@ -18,7 +18,7 @@ export default function Home() {
           <Grid item>
             <DisplayCards
               name={data.name}
-              weather={data.weather[0].main}
+              weather={data.weather}
               windSpeed={data.wind.speed}
               feelsLike={data.main.feels_like}
               temp={data.main.temp}
