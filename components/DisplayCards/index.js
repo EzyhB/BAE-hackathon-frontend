@@ -7,10 +7,22 @@ import {
 } from "@mui/material";
 import React from "react";
 
-export default function DisplayCards() {
+/*name={data.name}
+              weather={data.weather[0].main}
+              windSpeed={data.wind.speed}
+              feelsLike={data.main.feels_like}
+              temp={data.main.temp}*/
+
+export default function DisplayCards({
+  name,
+  weather,
+  windSpeed,
+  feelsLike,
+  temp,
+}) {
   return (
     <Card>
-      <CardHeader title={"Location name"} subheader={"location weather?"} />
+      <CardHeader title={name} subheader={weather} />
       <CardMedia
         component="img"
         height="194"
@@ -18,9 +30,9 @@ export default function DisplayCards() {
         alt="nicePlace"
       />
       <CardContent>
-        <Typography>windy and stuff</Typography>
-        <Typography>maffins winds</Typography>
-        <Typography>dont fly away</Typography>
+        <Typography>Wind Speed: {windSpeed} mph</Typography>
+        <Typography>Fees Like: {feelsLike} °F</Typography>
+        <Typography>Tempreature: {temp} °F</Typography>
       </CardContent>
     </Card>
   );
