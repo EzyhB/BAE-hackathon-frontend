@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     const dbFetch = async () => {
-      const result = await fetch("https://crag-weather.herokuapp.com/users/1");
+      const result = await fetch("http://localhost:5500/users/1");
       const data = await result.json();
       if (data) {
         console.log(data);
